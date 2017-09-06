@@ -10,36 +10,27 @@ const URL = 'http://localhost:3003/api/tarefas' // http://localhost:3003/api/tar
 export default class Todo extends Component {
     constructor(props){
         super(props)
-         this.state = {descricao: '', date: '', prioridade: 'Nula', list: []}
-
-        this.handleChange = this.handleChange.bind(this)
-        this.handleChangeD = this.handleChangeD.bind(this)
-        this.handleChangeP = this.handleChangeP.bind(this)
-        this.handleAdd = this.handleAdd.bind(this)
-
-        this.handleRemove = this.handleRemove.bind(this)
-        this.handleDone = this.handleDone.bind(this)
-        this.handlePending = this.handlePending.bind(this)
+        this.state = {descricao: '', date: '', prioridade: 'Nula', list: []}
 
         this.refresh()
     }
 
 
-    handleChange(event) {
+    handleChange = (event) => {
         this.setState({...this.state, descricao: event.target.value} )
     }
 
-    handleChangeD(event){
+    handleChangeD = (event) => {
         this.setState({...this.state, date: event.target.value})
     }
 
-    handleChangeP(event){
+    handleChangeP = (event) => {
         this.setState({...this.state, prioridade: event.target.value} )
     }
 
-    refreshAdd(){
+    refreshAdd() {
         axios.get(`${URL}?sort=-createdAt`) // ?sort=-createdAt
-            .then(resp => this.setState({...this.state, descricao: '', date: '', prioridade: 'Nula', list: resp.data}))
+            .then(resp => this.setState({...this.state, list: resp.data}))
     }
 
     refresh(){
@@ -47,7 +38,7 @@ export default class Todo extends Component {
             .then(resp => this.setState({...this.state, list: resp.data}))
     }
 
-    handleAdd(){
+    handleAdd = () => {
         //console.log(this.state.description)
         const descricao = this.state.descricao
         const date = this.state.date
@@ -56,17 +47,17 @@ export default class Todo extends Component {
             .then(qqrNome => this.refreshAdd())
     }
 
-    handleRemove(todo){
+    handleRemove = (todo) => {
         axios.delete(`${URL}/${todo._id}`)
             .then(qqrNome => this.refresh())
     }
 
-    handleDone(todo){
+    handleDone = (todo) => {
         axios.put(`${URL}/${todo._id}`, {...todo, done: true})
             .then(qqrNome => this.refresh())
     }
 
-    handlePending(todo){
+    handlePending = (todo) => {
         axios.put(`${URL}/${todo._id}`, {...todo, done: false})
             .then(qqrNome => this.refresh())
     }

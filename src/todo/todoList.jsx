@@ -8,7 +8,7 @@ export default props => {
         var mes = novaData.getMonth();
         var ano = novaData.getFullYear();
         return (
-          <span>{dia + '/' + (mes+1) + '/' + ano}</span>
+          <span>{(dia+1) + '/' + (mes+1) + '/' + ano}</span>
         );
         //<Calendario data={todo.date}/>
     }
