@@ -29,17 +29,16 @@ export default class Todo extends Component {
     }
 
     refreshAdd() {
-        axios.get(`${URL}?sort=-createdAt`) // ?sort=-createdAt
+        axios.get(`${URL}?sort=-createdAt`)
             .then(resp => this.setState({...this.state, list: resp.data}))
     }
 
     refresh(){
-        axios.get(`${URL}?sort=-createdAt`) // ?sort=-createdAt
+        axios.get(`${URL}?sort=-createdAt`)
             .then(resp => this.setState({...this.state, list: resp.data}))
     }
 
     handleAdd = () => {
-        //console.log(this.state.description)
         const descricao = this.state.descricao
         const date = this.state.date
         const prioridade = this.state.prioridade
@@ -61,6 +60,10 @@ export default class Todo extends Component {
         axios.put(`${URL}/${todo._id}`, {...todo, done: false})
             .then(qqrNome => this.refresh())
     }
+/* 
+    handleFilter = () => {
+        this.refresh()
+    } */
 
 
     render(){

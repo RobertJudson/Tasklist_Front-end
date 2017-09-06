@@ -26,8 +26,8 @@ module.exports = {
             loader: 'babel-loader',
             exclude: /nome_modules/,
             query: {
-                presets: ['es2015', 'react'],
-                plugins: ['transform-object-rest-spread']
+                presets: ['es2015', 'react', 'stage-1'],
+                plugins: ['transform-object-rest-spread', 'transform-class-properties']
             }
         }, {
             test: /\.css$/,
