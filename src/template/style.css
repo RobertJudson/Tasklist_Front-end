@@ -23,7 +23,7 @@ html, body{
 
 .content{
     max-width: 950px;
-    height: 100%;
+    height: calc(100% - 60px);
     margin: auto;
 }
 
@@ -94,7 +94,7 @@ html, body{
 /* CONTEUDO_TAREFAS */
 
 .conteudoTarefas{
-    min-height: calc(100% - 60px);
+    min-height: 100%;
     display: flex;
 }
 
@@ -116,21 +116,24 @@ html, body{
 }
 
 .todomenu ul{
-    padding: 0 5px 10px 20px;
-    margin-bottom: 20px;
+    padding: 0 5px 10px 10px;
 }
 
-.todomenu ul:first-child{
+.todomenu ul.first{
     border-bottom: 1px solid #cfcfcf;
 }
 
 .todomenu ul li{
-    margin: 10px 0;
+    padding: 6px 12px;
 }
 
 .todomenu ul li:hover{
-    font-weight: bold;
     cursor: pointer;
+    background: #f5f5f5;
+}
+
+.todomenu ul li.projetos:hover{
+    background: none;
 }
 
 /* === MENU TEMPORARIO - FIM ===

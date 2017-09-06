@@ -1,6 +1,5 @@
 import React from 'react'
 import IconButton from '../template/iconButton'
-import TodoDate from './TodoDate'
 
 export default props => {
     function Calendario(props) {
@@ -9,7 +8,7 @@ export default props => {
         var mes = novaData.getMonth();
         var ano = novaData.getFullYear();
         return (
-          <div>{dia + '/' + (mes+1) + '/' + ano}</div>
+          <span>{dia + '/' + (mes+1) + '/' + ano}</span>
         );
         //<Calendario data={todo.date}/>
     }
@@ -28,7 +27,7 @@ export default props => {
                 </tr>
                 <tr>
                     <td className='infos'>
-                        <div className='data'><i className='fa fa-calendar'></i><Calendario data={todo.date}/></div>
+                        <div className='data'><i className='fa fa-calendar'></i>{<Calendario data={new Date(todo.date)}/>}</div>
                         <div className='prioridade'><i className='fa fa-exclamation-circle'></i>{todo.prioridade}</div>
                         <div className='projeto'><i className='fa fa-hashtag'></i>Sem Projeto</div>
                     </td>
