@@ -4,17 +4,22 @@ import IconButton from '../template/iconButton'
 export default props => {
     function Calendario(props) {
         var novaData = props.data;
-        var dia = novaData.getDate();
-        var mes = novaData.getMonth();
+        var dia = novaData.getDate() + 1;
+        var mes = novaData.getMonth() + 1;
         var ano = novaData.getFullYear();
+        if(dia == 32 && mes == 12 && ano == 1969){
+            dia = "- -";
+            mes = "- -";
+            ano = "- - - -";
+        }
         return (
-          <span>{(dia+1) + '/' + (mes+1) + '/' + ano}</span>
+          <span>{dia + ' / ' + mes + ' / ' + ano}</span>
         );
-        //<Calendario data={todo.date}/>
     }
+    
     const renderRows = () => {
         const list = props.list
-        console.log(list)
+        //console.log(list)
         return list.map(todo => (
             <tbody key={todo._id}>
                 <tr className='tabela'>

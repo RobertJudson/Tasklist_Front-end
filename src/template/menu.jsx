@@ -31,8 +31,8 @@ export default props => (
         <div className='navegacao'>
             <ul className='menu'>
                 <li><a href="#/tarefas"><i className='fa fa-home'></i></a></li>
-                <li><a href="#/about"><i className='fa fa-cog'></i></a></li>
-                <li className='usuario'><a href="#/about"><i className='fa fa-user'></i>Usuario</a></li>
+                <li><a href="#/teste"><i className='fa fa-cog'></i></a></li>
+                <li className='usuario'><a href="#/teste"><i className='fa fa-user'></i>Usuario</a></li>
             </ul>
         </div>
 

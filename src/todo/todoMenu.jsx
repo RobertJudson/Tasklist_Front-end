@@ -5,7 +5,7 @@ export default props => (
     <div className='todomenu'>
         <ul className='first'>
             <li>Todas as tarefas</li>
-            <li onClick=''>Hoje</li>
+            <li>Hoje</li>
             <li>Amanhã</li>
             <li>Próximos 7 dias</li>
             <li>Calendário</li>

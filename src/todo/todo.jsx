@@ -10,7 +10,7 @@ const URL = 'http://localhost:3003/api/tarefas' // http://localhost:3003/api/tar
 export default class Todo extends Component {
     constructor(props){
         super(props)
-        this.state = {descricao: '', date: '', prioridade: 'Nula', list: []}
+        this.state = {descricao: '', date: '', prioridade: 'Nula', projeto: '', list: []}
 
         this.refresh()
     }
@@ -20,17 +20,17 @@ export default class Todo extends Component {
         this.setState({...this.state, descricao: event.target.value} )
     }
 
-    handleChangeD = (event) => {
+    handleChangeDate = (event) => {
         this.setState({...this.state, date: event.target.value})
     }
 
-    handleChangeP = (event) => {
+    handleChangePriority = (event) => {
         this.setState({...this.state, prioridade: event.target.value} )
     }
 
-    refreshAdd() {
+    refreshAdd(descricao, date, prioridade) {
         axios.get(`${URL}?sort=-createdAt`)
-            .then(resp => this.setState({...this.state, list: resp.data}))
+            .then(resp => this.setState({...this.state, descricao, date, prioridade, list: resp.data}))
     }
 
     refresh(){
@@ -43,7 +43,7 @@ export default class Todo extends Component {
         const date = this.state.date
         const prioridade = this.state.prioridade
         axios.post(URL, {descricao, date, prioridade})
-            .then(qqrNome => this.refreshAdd())
+            .then(qqrNome => this.refreshAdd('', '', 'Nula'))
     }
 
     handleRemove = (todo) => {
@@ -60,10 +60,6 @@ export default class Todo extends Component {
         axios.put(`${URL}/${todo._id}`, {...todo, done: false})
             .then(qqrNome => this.refresh())
     }
-/* 
-    handleFilter = () => {
-        this.refresh()
-    } */
 
 
     render(){
@@ -73,8 +69,8 @@ export default class Todo extends Component {
                     <TodoMenu />
                 </article>
                 <article className='direita'>
-                    <TodoForm handleAdd={this.handleAdd} handleChange={this.handleChange} descricao={this.state.descricao} handleChangeD={this.handleChangeD} date={this.state.date} handleChangeP={this.handleChangeP} prioridade={this.state.prioridade} />
-                    <TodoList list={this.state.list} handleRemove={this.handleRemove} handleDone={this.handleDone} handlePending={this.handlePending} />
+                    <TodoForm handleAdd={this.handleAdd} handleChange={this.handleChange} descricao={this.state.descricao} handleChangeDate={this.handleChangeDate} date={this.state.date} handleChangePriority={this.handleChangePriority} prioridade={this.state.prioridade} projeto={this.state.projeto} />
+                    <TodoList list={this.state.list} handleRemove={this.handleRemove} handleDone={this.handleDone} handlePending={this.handlePending}  />
                 </article>
             </section>
         )
