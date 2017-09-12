@@ -6,7 +6,7 @@ var date = new Date();
 
 export default props => (
     <form onSubmit={props.handleAdd}>
-        <input className='descricao' placeholder='Adicione uma tarefa' value={props.descricao} onChange={props.handleChange} />
+        <input className='descricao' placeholder='Adicione uma tarefa' value={props.description} onChange={props.handleChange} />
         <div className='baixo'>
             <div className='teste'>
                 <i className='fa fa-calendar'></i>
@@ -14,7 +14,7 @@ export default props => (
             </div>
             <div>
                 <i className='fa fa-exclamation-circle'></i>
-                <select required className='prioridade' value={props.prioridade} onChange={props.handleChangePriority}>
+                <select required className='prioridade' value={props.priority} onChange={props.handleChangePriority}>
                     <option value='Nula' hidden>Prioridade</option>
                     <option value='Nula'>Nula</option>
                     <option value='Baixa'>Baixa</option>

@@ -16,14 +16,14 @@ export default props => {
           <span>{dia + ' / ' + mes + ' / ' + ano}</span>
         );
     }
-    
+
     const renderRows = () => {
         const list = props.list
         //console.log(list)
         return list.map(todo => (
             <tbody key={todo._id}>
                 <tr className='tabela'>
-                    <td className={todo.done ? 'markedAsDone' : ''}>{todo.descricao}</td>
+                    <td className={todo.done ? 'markedAsDone' : ''}>{todo.description}</td>
                     <td className='box'>
                         <IconButton hide={todo.done} style='success' icon='check' onClick={() => props.handleDone(todo)} />
                         <IconButton hide={!todo.done} style='success' icon='undo' onClick={() => props.handlePending(todo)} />
@@ -33,7 +33,7 @@ export default props => {
                 <tr>
                     <td className='infos'>
                         <div className='data'><i className='fa fa-calendar'></i>{<Calendario data={new Date(todo.date)}/>}</div>
-                        <div className='prioridade'><i className='fa fa-exclamation-circle'></i>{todo.prioridade}</div>
+                        <div className='prioridade'><i className='fa fa-exclamation-circle'></i>{todo.priority}</div>
                         <div className='projeto'><i className='fa fa-hashtag'></i>Sem Projeto</div>
                     </td>
                     <td className='box'><IconButton style='danger' icon='trash-o' onClick={() => props.handleRemove(todo)} /></td>

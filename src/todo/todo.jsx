@@ -5,19 +5,21 @@ import TodoForm from './todoForm'
 import TodoList from './todoList'
 import TodoMenu from './todoMenu'
 
-const URL = 'http://localhost:3003/api/tarefas' // http://localhost:3003/api/tarefas // https://prpi.herokuapp.com/api/tarefas
+const URL = 'http://localhost:3001/tasks' // http://localhost:3003/api/tarefas // https://prpi.herokuapp.com/api/tarefas
+const URLP = 'http://localhost:3001/projects'
 
 export default class Todo extends Component {
     constructor(props){
         super(props)
-        this.state = {descricao: '', date: '', prioridade: 'Nula', projeto: '', list: []}
+        this.state = {description: '', date: '', priority: 'Nula', project: '', list: []}
 
         this.refresh()
+        this.refreshProject()
     }
 
 
     handleChange = (event) => {
-        this.setState({...this.state, descricao: event.target.value} )
+        this.setState({...this.state, description: event.target.value} )
     }
 
     handleChangeDate = (event) => {
@@ -25,12 +27,12 @@ export default class Todo extends Component {
     }
 
     handleChangePriority = (event) => {
-        this.setState({...this.state, prioridade: event.target.value} )
+        this.setState({...this.state, priority: event.target.value} )
     }
 
-    refreshAdd(descricao, date, prioridade) {
+    refreshAdd(description, date, priority) {
         axios.get(`${URL}?sort=-createdAt`)
-            .then(resp => this.setState({...this.state, descricao, date, prioridade, list: resp.data}))
+            .then(resp => this.setState({...this.state, description, date, priority, list: resp.data}))
     }
 
     refresh(){
@@ -38,11 +40,16 @@ export default class Todo extends Component {
             .then(resp => this.setState({...this.state, list: resp.data}))
     }
 
+    refreshProject(){
+        axios.get(`${URL}?sort=-createdAt`)
+            .then(resp => this.setState({...this.state, list: resp.data}))
+    }
+
     handleAdd = () => {
-        const descricao = this.state.descricao
+        const description = this.state.description
         const date = this.state.date
-        const prioridade = this.state.prioridade
-        axios.post(URL, {descricao, date, prioridade})
+        const priority = this.state.priority
+        axios.post(URL, {description, date, priority})
             .then(qqrNome => this.refreshAdd('', '', 'Nula'))
     }
 
@@ -66,10 +73,10 @@ export default class Todo extends Component {
         return(
             <section className='conteudoTarefas'>
                 <article className='esquerda'>
-                    <TodoMenu />
+                    <TodoMenu list={this.state.list} />
                 </article>
                 <article className='direita'>
-                    <TodoForm handleAdd={this.handleAdd} handleChange={this.handleChange} descricao={this.state.descricao} handleChangeDate={this.handleChangeDate} date={this.state.date} handleChangePriority={this.handleChangePriority} prioridade={this.state.prioridade} projeto={this.state.projeto} />
+                    <TodoForm handleAdd={this.handleAdd} handleChange={this.handleChange} description={this.state.description} handleChangeDate={this.handleChangeDate} date={this.state.date} handleChangePriority={this.handleChangePriority} priority={this.state.priority} project={this.state.project} />
                     <TodoList list={this.state.list} handleRemove={this.handleRemove} handleDone={this.handleDone} handlePending={this.handlePending}  />
                 </article>
             </section>
