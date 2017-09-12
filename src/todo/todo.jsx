@@ -6,7 +6,6 @@ import TodoList from './todoList'
 import TodoMenu from './todoMenu'
 
 const URL = 'http://localhost:3001/tasks' // http://localhost:3003/api/tarefas // https://prpi.herokuapp.com/api/tarefas
-const URLP = 'http://localhost:3001/projects'
 
 export default class Todo extends Component {
     constructor(props){
@@ -14,7 +13,6 @@ export default class Todo extends Component {
         this.state = {description: '', date: '', priority: 'Nula', project: '', list: []}
 
         this.refresh()
-        this.refreshProject()
     }
 
 
@@ -36,11 +34,6 @@ export default class Todo extends Component {
     }
 
     refresh(){
-        axios.get(`${URL}?sort=-createdAt`)
-            .then(resp => this.setState({...this.state, list: resp.data}))
-    }
-
-    refreshProject(){
         axios.get(`${URL}?sort=-createdAt`)
             .then(resp => this.setState({...this.state, list: resp.data}))
     }
@@ -73,7 +66,7 @@ export default class Todo extends Component {
         return(
             <section className='conteudoTarefas'>
                 <article className='esquerda'>
-                    <TodoMenu list={this.state.list} />
+
                 </article>
                 <article className='direita'>
                     <TodoForm handleAdd={this.handleAdd} handleChange={this.handleChange} description={this.state.description} handleChangeDate={this.handleChangeDate} date={this.state.date} handleChangePriority={this.handleChangePriority} priority={this.state.priority} project={this.state.project} />

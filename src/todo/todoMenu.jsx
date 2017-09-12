@@ -7,7 +7,7 @@ export default props => {
         console.log(list)
         return list.map(projetos => (
             <ul key={projetos._id}>
-                <li>{projetos.priority}</li>
+                <li>{projetos.titleProj}</li>
             </ul>
         ))
     }
