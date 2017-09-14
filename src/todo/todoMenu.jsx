@@ -1,16 +1,8 @@
 import React from 'react'
 
-export default props => {
+import TodoProjects from './todoProjects'
 
-    const renderProjetos = () => {
-        const list = props.list
-        console.log(list)
-        return list.map(projetos => (
-            <ul key={projetos._id}>
-                <li>{projetos.titleProj}</li>
-            </ul>
-        ))
-    }
+export default props => {
 
     return (
         <div className='todomenu'>
@@ -22,11 +14,10 @@ export default props => {
                 <li>Calendário</li>
             </ul>
             <ul>
-                <li className='projetos'><span>Projetos</span>{renderProjetos()}</li>
+                <li className='projetos'><span>Projetos</span><TodoProjects/></li>
                 <li>Concluidos</li>
                 <li>Arquivados</li>
             </ul>
         </div>
     )
-
 }

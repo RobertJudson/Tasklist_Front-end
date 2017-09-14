@@ -5,16 +5,15 @@ import TodoForm from './todoForm'
 import TodoList from './todoList'
 import TodoMenu from './todoMenu'
 
-const URL = 'http://localhost:3001/tasks' // http://localhost:3003/api/tarefas // https://prpi.herokuapp.com/api/tarefas
+const URL = 'http://localhost:3003/tasks' // http://localhost:3003/api/tarefas // https://prpi.herokuapp.com/api/tarefas
 
 export default class Todo extends Component {
     constructor(props){
         super(props)
-        this.state = {description: '', date: '', priority: 'Nula', project: '', list: []}
+        this.state = {description: '', date: '', priority: 'Nula', project: '', titleProj:'', list: []}
 
         this.refresh()
     }
-
 
     handleChange = (event) => {
         this.setState({...this.state, description: event.target.value} )
@@ -32,7 +31,7 @@ export default class Todo extends Component {
         axios.get(`${URL}?sort=-createdAt`)
             .then(resp => this.setState({...this.state, description, date, priority, list: resp.data}))
     }
-
+    
     refresh(){
         axios.get(`${URL}?sort=-createdAt`)
             .then(resp => this.setState({...this.state, list: resp.data}))
@@ -61,12 +60,11 @@ export default class Todo extends Component {
             .then(qqrNome => this.refresh())
     }
 
-
     render(){
         return(
             <section className='conteudoTarefas'>
                 <article className='esquerda'>
-
+                    <TodoMenu/>
                 </article>
                 <article className='direita'>
                     <TodoForm handleAdd={this.handleAdd} handleChange={this.handleChange} description={this.state.description} handleChangeDate={this.handleChangeDate} date={this.state.date} handleChangePriority={this.handleChangePriority} priority={this.state.priority} project={this.state.project} />

@@ -1,5 +1,8 @@
 import React from 'react'
+import { get } from 'lodash'
+
 import IconButton from '../template/iconButton'
+
 
 export default props => {
     function Calendario(props) {
@@ -19,7 +22,7 @@ export default props => {
 
     const renderRows = () => {
         const list = props.list
-        //console.log(list)
+        console.log(list)
         return list.map(todo => (
             <tbody key={todo._id}>
                 <tr className='tabela'>
@@ -34,7 +37,7 @@ export default props => {
                     <td className='infos'>
                         <div className='data'><i className='fa fa-calendar'></i>{<Calendario data={new Date(todo.date)}/>}</div>
                         <div className='prioridade'><i className='fa fa-exclamation-circle'></i>{todo.priority}</div>
-                        <div className='projeto'><i className='fa fa-hashtag'></i>Sem Projeto</div>
+                        <div className='projeto'><i className='fa fa-hashtag'></i>{get(todo ,'project.titleProj')}</div>
                     </td>
                     <td className='box'><IconButton style='danger' icon='trash-o' onClick={() => props.handleRemove(todo)} /></td>
                 </tr>

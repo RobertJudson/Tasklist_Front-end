@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -6,28 +6,31 @@
     font-size: 18px;
 }
 
-select:focus, option:focus, input:focus{
+select:focus,
+option:focus,
+input:focus {
     outline: none;
 }
 
-html, body{
+html,
+body {
     height: 100%;
 }
 
-.container{
+.container {
     width: 100%;
     height: 100%;
     margin: 0;
     padding: 0;
 }
 
-.content{
-    max-width: 950px;
+.content {
+    width: 100%;
     height: calc(100% - 60px);
     margin: auto;
 }
 
-.topo{
+.topo {
     width: 100%;
     margin: 0;
     padding: 0 45px;
@@ -38,116 +41,136 @@ html, body{
     justify-content: space-between;
 }
 
-.markedAsDone{
+.markedAsDone {
     text-decoration: line-through;
 }
 
+
 /* LOGO */
 
-.topo a.logo{
+.topo a.logo {
     color: #ffffff;
     font-size: 22px;
     display: flex;
     align-items: center;
 }
 
-.topo a:hover{
+.topo a:hover {
     text-decoration: none;
-
 }
 
-.topo a i.fa-angle-double-right{
+.topo a i.fa-angle-double-right {
     color: #fe9000;
     font-size: 30px;
     margin: 0 10px;
 }
 
+
 /* NAVEGAÇÃO */
 
-.topo div.navegacao ul{
+.topo div.navegacao ul {
     display: flex;
     flex-direction: row;
     margin: 0;
 }
 
-.topo ul li.usuario{
-    margin: 0 45px 0 67px;
-    font-size: 16px;
-    color: #ffffff;
-}
-
-.topo ul li.usuario a{
-    color: #ffffff;
-}
-
-.topo i.fa-home, .topo i.fa-cog{
+.topo ul li a {
     color: #ffffff;
     font-size: 18px;
     margin: 0 22px;
 }
 
-.topo i.fa-user{
+.topo ul li.usuario {
+    margin: 0 45px 0 67px;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.topo ul li.usuario a {
+    color: #ffffff;
+}
+
+.topo i.fa-user {
     margin: 0 10px 0 0;
     color: #ff9100;
 }
 
+
+/* === HOME === */
+
+.home {
+    width: 100%;
+    height: 100%;
+    background-image: url("http://cdn.wallpapersafari.com/79/67/yfAmO3.jpg");
+    background-size: cover;
+}
+
+.home.bgBackHome {}
+
+
 /* CONTEUDO_TAREFAS */
 
-.conteudoTarefas{
+.conteudoTarefas {
     min-height: 100%;
+    width: 950px;
+    margin: auto;
     display: flex;
+    justify-content: center;
 }
 
 
 /* ESQUERDA */
 
-.conteudoTarefas article.esquerda{
+.conteudoTarefas article.esquerda {
     width: 33%;
     display: flex;
     justify-content: flex-end;
     padding: 40px 30px 0 0;
 }
 
+
 /* ====================================
 === TABELAS TEMPORARIAS - INICIO === */
 
-.todomenu{
+.todomenu {
     display: table;
 }
 
-.todomenu ul{
+.todomenu ul {
     padding: 0 5px 10px 10px;
 }
 
-.todomenu ul.first{
+.todomenu ul.first {
     border-bottom: 1px solid #cfcfcf;
 }
 
-.todomenu ul li{
+.todomenu ul li {
     padding: 6px 12px;
 }
 
-.todomenu ul li:hover{
+.todomenu ul li:hover {
     cursor: pointer;
     background: #f5f5f5;
 }
 
-.todomenu ul li.projetos:hover{
+.todomenu ul li.projetos:hover {
     background: none;
 }
+
 
 /* === MENU TEMPORARIO - FIM ===
 ==================================*/
 
+
 /* DIREITA */
 
-.conteudoTarefas article.direita{
+.conteudoTarefas article.direita {
     width: 66.6%;
     padding: 50px 20px 0;
     background: #efefef;
 }
 
-.conteudoTarefas article.direita input.descricao{
+.conteudoTarefas article.direita input.descricao {
     background: #ffffff;
     width: 100%;
     border: 1px solid #cfcfcf;
@@ -155,25 +178,25 @@ html, body{
     font-size: 18px;
 }
 
-.conteudoTarefas article.direita div.baixo{
+.conteudoTarefas article.direita div.baixo {
     width: 100%;
     display: flex;
     justify-content: space-between;
     margin: 10px 0 50px;
 }
 
-.conteudoTarefas article.direita div.baixo div{
+.conteudoTarefas article.direita div.baixo div {
     border: 1px solid #cfcfcf;
     width: 25%;
     display: flex;
     justify-content: center;
 }
 
-.conteudoTarefas article.direita div.baixo div i{
+.conteudoTarefas article.direita div.baixo div i {
     margin: 6px 5px 0;
 }
 
-.conteudoTarefas article.direita div.baixo div select.prioridade{
+.conteudoTarefas article.direita div.baixo div select.prioridade {
     background-color: #efefef;
     border: none;
     padding: 3px 0;
@@ -183,7 +206,7 @@ html, body{
     color: #787878;
 }
 
-.conteudoTarefas article.direita div.baixo div input{
+.conteudoTarefas article.direita div.baixo div input {
     background: #efefef;
     border: none;
     font-size: 16px;
@@ -191,11 +214,11 @@ html, body{
     color: #787878;
 }
 
-.conteudoTarefas article.direita div.baixo div.teste{
+.conteudoTarefas article.direita div.baixo div.teste {
     width: 30%;
 }
 
-.conteudoTarefas article.direita div.baixo input.teste{
+.conteudoTarefas article.direita div.baixo input.teste {
     background: #efefef;
     border: 1px solid #cfcfcf;
     padding: 3px 0;
@@ -205,7 +228,7 @@ html, body{
     color: #787878;
 }
 
-.conteudoTarefas article.direita div.baixo input.botao{
+.conteudoTarefas article.direita div.baixo input.botao {
     background: #ff9100;
     color: #000000;
     font-weight: bold;
@@ -213,58 +236,60 @@ html, body{
     width: 100px;
 }
 
+
 /* ====================================
 === TABELAS TEMPORARIAS - INICIO === */
 
-.conteudoTarefas article.direita table{
+.conteudoTarefas article.direita table {
     width: 100%;
     color: #555555;
 }
 
-.conteudoTarefas article.direita table tr:first-child{
+.conteudoTarefas article.direita table tr:first-child {
     border-bottom: 1px solid #cfcfcf;
 }
 
-.conteudoTarefas article.direita table tbody tr:last-child{
+.conteudoTarefas article.direita table tbody tr:last-child {
     height: 50px;
     vertical-align: top;
 }
 
-.conteudoTarefas article.direita table tr td:first-child{
+.conteudoTarefas article.direita table tr td:first-child {
     padding-left: 15px;
 }
 
-.conteudoTarefas article.direita table tr td.infos{
+.conteudoTarefas article.direita table tr td.infos {
     display: flex;
     justify-content: space-between;
     font-size: 10px;
 }
 
-.conteudoTarefas article.direita table tr td.infos div{
+.conteudoTarefas article.direita table tr td.infos div {
     font-size: 16px;
 }
 
-.conteudoTarefas article.direita table tr td.infos div i.fa{
+.conteudoTarefas article.direita table tr td.infos div i.fa {
     margin-right: 7px;
 }
 
-.conteudoTarefas article.direita table tr td.infos div:last-child{
+.conteudoTarefas article.direita table tr td.infos div:last-child {
     margin: 0 90px 0 0;
 }
 
-.conteudoTarefas article.direita table tr td.box{
+.conteudoTarefas article.direita table tr td.box {
     text-align: center;
 }
 
-.conteudoTarefas article.direita table tr td.box:hover{
+.conteudoTarefas article.direita table tr td.box:hover {
     color: #000000;
 }
 
-.conteudoTarefas article.direita button.botaoLista{
-    background: rgba(255,255,255,0);
+.conteudoTarefas article.direita button.botaoLista {
+    background: rgba(255, 255, 255, 0);
     border: none;
     font-size: 16px;
 }
+
 
 /* === TABELAS TEMPORARIAS - FIM ===
 ==================================*/
