@@ -121,7 +121,7 @@ body {
     background-color: rgba(0,0,0,.5);
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .home article{
@@ -129,12 +129,18 @@ body {
 }
 
 .home article.textos{
+    min-width: 49%;
+}
+
+.home article.textos div.align{
     width: 520px;
-    float: left;
+    float: right;
+    display: table;
 }
 
 .home article.textos h1{
     font-size: 50px;
+    margin: 0;
 }
 
 .home article.textos h2{
@@ -144,7 +150,7 @@ body {
     font-weight: lighter;
 }
 
-.home article.textos div{
+.home article.textos div.align div{
     display: flex;
     margin: 60px 0 0 0;
     float: right;
@@ -162,11 +168,9 @@ body {
 }
 
 .home article.createAcount{
-    float: right;
     width: 40%;
-    padding: 40px 40px 60px;
-    background-color: rgba(0,0,0,.5);
-    margin: 20px 0 0;
+    padding: 60px 40px 80px;
+    background-color: rgba(0,0,0,.6);
 }
 
 .home article.createAcount form{
@@ -189,6 +193,7 @@ body {
     background: #E48000;
     padding: 3px 0;
     border: none;
+    font-weight: bold;
 }
 
 /* CONTEUDO_TAREFAS */
@@ -349,6 +354,10 @@ body {
 
 .conteudoTarefas article.direita table tr td.infos div {
     font-size: 16px;
+}
+
+.conteudoTarefas article.direita table tr td.infos div.projeto{
+    width: 120px;
 }
 
 .conteudoTarefas article.direita table tr td.infos div i.fa {

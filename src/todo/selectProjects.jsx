@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const URL = 'http://localhost:3003/projects'
 
-export default class TodoProjects extends Component {
+export default class selectProjects extends Component {
     constructor(props){
         super(props)
         this.state = {titleProj: '', list: []}
@@ -21,15 +21,15 @@ export default class TodoProjects extends Component {
             const list = this.state.list
             //console.log(list)
             return list.map(projetos => (
-                <li key={projetos._id}>{projetos.titleProj}</li>  
+                <option key={projetos._id}>{projetos.titleProj}</option>  
             ))
         }
 
         return (
-            <div className='todomenu'>
-                <ul>
+            <div className='projeto'>
+                <select>
                     {renderProjetos()}
-                </ul>
+                </select>
             </div>
         )
     }

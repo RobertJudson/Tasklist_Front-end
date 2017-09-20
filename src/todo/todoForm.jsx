@@ -1,6 +1,7 @@
 import React from 'react'
 import Grid from '../template/grid'
 import IconButton from '../template/iconButton'
+import SelectProjects from './selectProjects'
 
 var date = new Date();
 
@@ -22,7 +23,7 @@ export default props => (
                     <option value='Alta'>Alta</option>
                 </select>
             </div>
-            <input className='projeto teste' placeholder='Projeto'  />
+            <SelectProjects/>
             <input className='botao' type='submit' value='Adicionar' />
         </div>
     </form>

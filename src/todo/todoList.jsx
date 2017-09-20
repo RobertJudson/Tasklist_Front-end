@@ -37,7 +37,7 @@ export default props => {
                     <td className='infos'>
                         <div className='data'><i className='fa fa-calendar'></i>{<Calendario data={new Date(todo.date)}/>}</div>
                         <div className='prioridade'><i className='fa fa-exclamation-circle'></i>{todo.priority}</div>
-                        <div className='projeto'><i className='fa fa-hashtag'></i>{get(todo ,'project.titleProj')}</div>
+                        <div className='projeto'><i className='fa fa-hashtag'></i>{get(todo, 'project.titleProj')}</div>
                     </td>
                     <td className='box'><IconButton style='danger' icon='trash-o' onClick={() => props.handleRemove(todo)} /></td>
                 </tr>
