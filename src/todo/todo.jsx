@@ -5,7 +5,7 @@ import TodoForm from './todoForm'
 import TodoList from './todoList'
 import TodoMenu from './todoMenu'
 
-const URL = 'http://localhost:3003/tasks' // http://localhost:3003/api/tarefas // https://prpi.herokuapp.com/api/tarefas
+const URL = 'https://task-list-prpi.herokuapp.com/tasks' // http://localhost:3003/api/tarefas // http://localhost:3003/tasks
 
 export default class Todo extends Component {
     constructor(props){
