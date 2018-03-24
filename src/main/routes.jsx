@@ -1,8 +1,10 @@
-import React from 'react'
+﻿import React from 'react'
 import {Router, Route, Redirect, hashHistory} from 'react-router'
 
 import Todo from '../todo/todo'  // Todo é a página "Tarefas"
 import Home from '../home/home'
+
+//exemplo
 
 export default props => (
     <Router history={hashHistory}>
